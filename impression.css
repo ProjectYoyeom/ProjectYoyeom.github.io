@@ -1,0 +1,35 @@
+@font-face { font-family: 'MapoPeacefull'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoPeacefullA.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+body{
+	font-size: 11px;
+	font-family: MapoPeacefull;
+	padding : 30px;
+	padding-top: 17px;
+}
+
+.mandoo{	height: 100%;
+	-moz-column-count: 2;
+	-webkit-column-count: 2;
+	column-count: 2;}
+
+.navbar {
+	display: none;
+}
+
+  .ssang{
+  text-align: right;
+  }
+
+
+  b {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: normal;
+}
+
+
+/*
+@page {
+  size: landscape;
+}
+*/

@@ -1,0 +1,174 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+
+
+
+    function _GET(search) {
+        var obj = {};
+        var uri = decodeURI(search);
+            uri = uri.slice(1,uri.length);
+ 
+        var param = uri.split('&');
+        
+        for (var i = 0; i < param.length; i++) {
+            var devide = param[i].split('=');
+            obj[devide[0]] = devide[1];
+        }
+ 
+        return obj;
+    }
+ 
+    window.onload = function () {
+        var search = window.location.search;
+        var getData =  _GET(search);
+        var sender = document.querySelector('.from_parent');
+ 
+        sender.innerHTML = getData.val;
+    }
+
+
+  var initBody;
+  function beforePrint(){
+    boxes=document.body.innerHTML;
+    document.body.innerHTML=box.innerHTML;
+    }
+  function afterPrint(){
+    document.body.innerHTML=boxes;
+    }
+  function printArea(){
+    window.print();
+    }
+  window.onbeforeprint=beforePrint;
+  window.onafterprint=afterPrint;    
+  
+
+
+
+function copyTextToClipboard(text) {
+  var textArea = document.createElement("textarea");
+
+  //
+  // *** This styling is an extra step which is likely not required. ***
+  //
+  // Why is it here? To ensure:
+  // 1. the element is able to have focus and selection.
+  // 2. if element was to flash render it has minimal visual impact.
+  // 3. less flakyness with selection and copying which **might** occur if
+  //    the textarea element is not visible.
+  //
+  // The likelihood is the element won't even render, not even a flash,
+  // so some of these are just precautions. However in IE the element
+  // is visible whilst the popup box asking the user for permission for
+  // the web page to copy to the clipboard.
+  //
+
+  // Place in top-left corner of screen regardless of scroll position.
+  textArea.style.position = 'fixed';
+  textArea.style.top = 0;
+  textArea.style.left = 0;
+
+  // Ensure it has a small width and height. Setting to 1px / 1em
+  // doesn't work as this gives a negative w/h on some browsers.
+  textArea.style.width = '2em';
+  textArea.style.height = '2em';
+
+  // We don't need padding, reducing the size if it does flash render.
+  textArea.style.padding = 0;
+
+  // Clean up any borders.
+  textArea.style.border = 'none';
+  textArea.style.outline = 'none';
+  textArea.style.boxShadow = 'none';
+
+  // Avoid flash of white box if rendered for any reason.
+  textArea.style.background = 'transparent';
+
+
+  textArea.value = text;
+
+  document.body.appendChild(textArea);
+
+  textArea.select();
+
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    console.log('Copying text command was ' + msg);
+  } catch (err) {
+    console.log('Oops, unable to copy');
+  }
+
+  document.body.removeChild(textArea);
+}
+
+function CopyLink() {
+  copyTextToClipboard(location.href);
+}
+
+
+ var newWindow;
+    function openNewWindow(){
+
+        window.open("request.html" , "newWindow", "width=1000, height=800, scrollbar=no");
+    }
+
+
+
+
+
+</script>
+
+
+
+
+</head>
+
+
+
+<link rel="stylesheet" href="son.css" media="screen"/>
+<link rel="stylesheet" href="impression.css" media="print"/>
+<script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+<body>
+
+  <div class="mandoo">
+
+  <p><b style="font-weight: bold;">만두만두 레시피 (2인분 기준)</b></p>
+
+  <br>
+
+    <p class="from_parent"> </p>
+
+    <p>나만의 만두가 완성이 되었습니다. <br> 혼자 혹은 여럿이서 맛있는 만두 드세요 ! </p>
+    <br>
+
+
+    <p class="ssang">&#10024;출처 : 종염이와 이요요의 만두만두 프로젝트</p>
+
+  </div>
+
+
+
+  <div class="navbar">
+
+     <button onclick="CopyLink()">url 복사하기</button>
+
+     <button onclick="printArea()">프린트하기</button>
+
+     <button> <a href="https://forms.gle/Sp83wNZUipoh4Sze6" onclick="window.open(this.href,'_blank', 'width=700px, height=800px, toolbars=no, scrollbar=no'); return false;">만두만두 주문하기</a> </button>
+     
+
+  </div>    
+
+    
+
+
+
+</body>
+</html>
