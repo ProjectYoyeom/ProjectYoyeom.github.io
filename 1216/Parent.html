@@ -1,0 +1,24 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+    var newWindow;
+    function openNewWindow(){
+        var data1 = document.querySelector('#sendValue1').value;
+        var data2 = document.querySelector('#sendValue2').value;
+        var data3 = document.querySelector('#sendValue3').value;
+        var data4 = document.querySelector('#sendValue4').value;
+        window.open("Child.html?val="+data1+"<br>"+data2+"<br>"+data3+"<br>"+data4, "newWindow", "width=300, height=400, scrollbar=no");
+    }
+    
+</script>
+</head>
+<body>
+<input type="button" value="자식창 열기" onclick="openNewWindow()">
+<input type='text' id='sendValue1'/>
+<input type='text' id='sendValue2'/>
+<input type='text' id='sendValue3'/>
+<input type='text' id='sendValue4'/>
+</body>
+</html>
